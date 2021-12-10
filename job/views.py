@@ -1,0 +1,56 @@
+from django.shortcuts import redirect, render
+from .models import Job
+from django.core.paginator import Paginator
+from django.urls import reverse
+from .forms import ApplyForm,JobForm
+# Create your views here.
+
+def job_list(request):
+    job_list=Job.objects.all()
+    paginator=Paginator(job_list,2)
+    page_number=request.GET.get('page')
+    page_obj=paginator.get_page(page_number)
+    context={'jobs':page_obj}
+    return render(request,'job/job_list.html',context)
+
+
+
+
+
+def job_detail(request,slug):
+    job_detail=Job.objects.get(slug=slug)
+    if request.method=='POST':
+        form=ApplyForm(request.POST,request.FILES)
+        if form.is_valid():
+            myform=form.save(commit=False)
+            myform.job=job_detail
+            myform.save()
+            form=ApplyForm() #this line is for clear all form fields after submitting
+            print('Succesfully Submit')
+    else:
+        form=ApplyForm()
+
+
+    context={'job':job_detail,'jobform':form}
+    return render(request,'job/job_detail.html',context)
+    
+
+    #myform.job[is the name of the field in apply form]=job_detail[is for know that we are apply the same job]
+
+
+
+def add_job(request):
+    if request.method=="POST":
+        form=JobForm(request.POST,request.FILES)
+        if form.is_valid():
+            myform=form.save(commit=False)
+            myform.owner=request.user
+            myform.save()
+            form=JobForm() #this line is for clear all form fields after submitting
+            return redirect(reverse('jobs:job_list'))
+    else:
+        form=JobForm()
+    
+
+        
+    return render(request,'job/add_job.html',{'postform':form})
