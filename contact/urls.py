@@ -1,15 +1,13 @@
-from accounts import views
+from contact import views
 from django.urls import path
 
 from django.urls.conf import include
 
 """the app_name variable provided for {% url 'namespace-for-url-ofproject:the nameofviewinpath' and relate it with id%}"""
-app_name='accounts'
+app_name='contact'
 
 
 urlpatterns = [
-    path('signup',views.signup,name="signup"),
-    path('profile',views.profile,name="profile"),
-    path('profile/edit',views.profile_edit,name="profile_edit"),
+    path('',views.sendmsg,name="contact_sendmsg"),
     
 ]

@@ -3,6 +3,7 @@ from .models import Job
 from django.core.paginator import Paginator
 from django.urls import reverse
 from .forms import ApplyForm,JobForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def job_list(request):
@@ -37,8 +38,9 @@ def job_detail(request,slug):
 
     #myform.job[is the name of the field in apply form]=job_detail[is for know that we are apply the same job]
 
+#We add decorator For force the user to login first then he can post a job(only Users have login can post job)
 
-
+@login_required
 def add_job(request):
     if request.method=="POST":
         form=JobForm(request.POST,request.FILES)
