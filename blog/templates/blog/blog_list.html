@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+    <!-- bradcam_area  -->
+    {% block body %}
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>Blog</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <!-- job_listing_area_start  -->
+    <div class="job_listing_area plus_padding">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-9">
+                    
+
+                    <div class="recent_joblist_wrap">
+                        <div class="recent_joblist white-bg ">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <div class="d-none d-lg-block">
+                                        <a class="boxed-btn3" href="{% url 'blogs:blog_create_post' %}">Create Post</a>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                            
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="recent_joblist_wrap">
+                        <div class="recent_joblist white-bg ">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <h4>Post Listing</h4>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                            
+                            
+                        </div>
+                        
+                    </div>
+                    
+
+                    <div class="job_lists m-0">
+                        <div class="col-lg-8 mb-5 mb-lg-0">
+
+                        <div class="blog_left_sidebar">
+                        <div class="row">
+                            {% for blog in blogs %}
+                                <article class="blog_item">
+                                    <div class="blog_item_img">
+                                        <img class="card-img rounded-0" src="{{blog.image.url}}" alt="">
+                                        <a href="{% url 'blogs:blog_detail' blog.slug %}" class="blog_item_date">
+                                            <h3>{{blog.created_on|date:'d'}}</h3>
+                                            <p>{{blog.created_on|date:'M'}}</p>
+                                        </a>
+                                    </div>
+
+                                    <div class="blog_details">
+                                        <a class="d-inline-block" href="{% url 'blogs:blog_detail' blog.slug %}">
+                                            <h2>{{blog.title}}</h2>
+                                        </a>
+                                        <p>{{blog.content|slice:":200"}}</p>
+                                        <ul class="blog-info-link">
+                                            <li><a href="#"><i class="fa fa-user"></i>Posted By: {{ blog.author }} At: {{blog.created_on|date:'d M o'}}</a></li>
+                                            
+                                        </ul>
+                                    </div>
+                                </article>
+
+                            
+                            {% endfor %}
+
+                            
+                            
+                        </div>
+
+                        {% if blogs.has_other_pages %}
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="pagination_wrap">
+                                        <ul>
+                                        {% if blogs.has_previous %}
+                                            <li><a href="?page={{blogs.previous_page_number}}"> <i class="ti-angle-left"></i> </a></li>
+                                        {% endif %}
+
+                                        {% for i in blogs.paginator.page_range %}
+                                            <li><a href="?page={{i}}"><span>{{i}}</span></a></li>
+
+                                        {% endfor %}
+                                            
+
+                                        {% if blogs.has_next %}
+                                            <li><a href="?page={{blogs.next_page_number}}"> <i class="ti-angle-right"></i> </a></li>
+                                        {% endif %}
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- job_listing_area_end  -->
+
+    {% endblock body %}
+

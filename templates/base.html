@@ -45,8 +45,9 @@
                         <div class="row align-items-center">
                             <div class="col-xl-3 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html">
-                                        <img src="img/logo.png" alt="">
+                                    <a href="#">
+                                        <img src="{% static "img/logo.png" %}" alt="">
+                                        
                                     </a>
                                 </div>
                             </div>
@@ -55,6 +56,9 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="/">home</a></li>
+                                            
+                                            <li><a href="{% url 'blogs:blog_list' %}">Blog</a></li>
+
                                             <li><a href="{% url 'jobs:job_list' %}">Browse Job</a></li>
                                             
                                             <li><a href="{% url 'contact:contact_sendmsg' %}">Contact</a></li>
@@ -83,6 +87,7 @@
                                     <div class="d-none d-lg-block">
                                         <a class="boxed-btn3" href="{% url 'jobs:add_job'%}">Post a Job</a>
                                     </div>
+                                    
                                 </div>
                             </div>
                             <div class="col-12">

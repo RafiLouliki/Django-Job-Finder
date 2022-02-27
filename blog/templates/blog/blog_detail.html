@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+    <!-- bradcam_area  -->
+    {% block body %}
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>{{blog.title}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <!-- job_listing_area_start  -->
+    <div class="job_listing_area plus_padding">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-9">
+                    
+
+
+                    
+
+                    <div class="job_lists m-0">
+                        
+                        <div class="row">
+                            
+                                <article class="blog_item">
+                                    <div class="blog_item_img">
+                                        <img class="card-img rounded-0" src="{{blog.image.url}}" alt="">
+                                        <a href="#" class="blog_item_date">
+                                            <h3>{{blog.created_on|date:'d'}}</h3>
+                                            <p>{{blog.created_on|date:'M'}}</p>
+                                        </a>
+                                    </div>
+
+                                    <div class="blog_details">
+                                        <a class="d-inline-block" href="#">
+                                            <h2>{{blog.title}}</h2>
+                                        </a>
+                                        <p>{{blog.content}}</p>
+                                        <ul class="blog-info-link">
+                                            <li><a href="#"><i class="fa fa-user"></i>Posted By: {{ blog.author }} At: {{blog.created_on|date:'d M o'}}</a></li>
+                                            
+                                        </ul>
+                                    </div>
+                                    
+
+
+                                <div class="apply_job_form white-bg mt-3">
+                                    <div class="comments-area">
+                                        <h4>{{blog.comments.all.count}} Comments</h4>
+                                        {% for comment in blog.comments.all %}
+                                        <div class="comment-list">
+                                           <div class="single-comment justify-content-between d-flex">
+                                              <div class="user justify-content-between d-flex">
+                                                 <div class="desc">
+                                                    <h5>
+                                                        <a href="#">{{ comment.username }}</a>
+                                                     </h5>
+                                                    
+                                                    <div class="d-flex justify-content-between">
+                                                       <div class="d-flex align-items-center">
+                                                        <p class="comment">
+                                                            {{ comment.body }}
+                                                        </p>
+                                                          <p class="date">{{ comment.date_added }}</p>
+                                                       </div>
+                                                       
+                                                    </div>
+                                                 </div>
+                                              </div>
+                                           </div>
+                                        </div>
+                                        {% empty %}
+                                        <div class="notification">
+                                            <p>No comments yet!</p>
+                                        </div>
+                                        {% endfor %}
+                                    
+                                    
+                                    </div>
+
+                                </div>
+
+                                    
+                                </article>
+                                        
+
+                                
+                               
+
+                            
+                            
+                        </div>
+
+                        <div class="apply_job_form white-bg mt-3">
+                            <h4>Leave A Comment</h4>
+                            <form method='POST' enctype="multipart/form-data">
+                                {% csrf_token %}
+                                
+                                    
+                                    {% bootstrap_form CommentForm %}
+                                    {% buttons %}
+                                    <input type="submit" value="Send A Reply" class="boxed-btn3 w-100" />
+                                    {% endbuttons %}
+                                
+                            </form>
+                        </div>
+                        
+
+                        
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- job_listing_area_end  -->
+
+   {% endblock body %}
+
+
+
+
+
+
+
+
