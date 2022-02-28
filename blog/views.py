@@ -59,3 +59,31 @@ def create_post(request):
         form=PostForm()
     
     return render(request,'blog/create_post.html',{'CREATEPOSTFORM':form})
+
+
+
+
+
+
+"""@login_required
+def create_post(request):
+
+
+    if request.method=="POST":
+
+        form=PostForm(request.POST,request.FILES)
+        if form.is_valid():
+            
+            myform=form.save(commit=False)
+            myform.author=request.user
+            myform.save()
+            form=PostForm() #this line is for clear all form fields after submitting
+            return redirect(reverse('blogs:blog_list'))
+            
+            
+    else:
+        form=PostForm()
+    
+    return render(request,'blog/create_post.html',{'CREATEPOSTFORM':form})
+
+"""
