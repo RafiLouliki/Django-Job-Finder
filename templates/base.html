@@ -71,13 +71,18 @@
 
 
                                     {% if request.user.is_authenticated %}
+                                        <div class="phone_num d-none d-xl-block">
+                                        <a href="{% url 'logout'%}">Log out</a>
+                                        </div>
 
                                         <div class="phone_num d-none d-xl-block">
                                             <a href="{% url 'accounts:profile'%}">My Profile</a>
                                         </div>
 
                                     {% else %}
-
+                                        <div class="phone_num d-none d-xl-block">
+                                        <a href="{% url 'accounts:signup'%}">Register Now</a>
+                                        </div>
                                         <div class="phone_num d-none d-xl-block">
                                             <a href="{% url 'login'%}">Log in</a>
                                         </div>
