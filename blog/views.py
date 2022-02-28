@@ -81,9 +81,5 @@ def create_post(request):
             return redirect(reverse('blogs:blog_list'))
             
             
-    else:
-        form=PostForm()
-    
-    return render(request,'blog/create_post.html',{'CREATEPOSTFORM':form})
 
 """
