@@ -13,6 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from unicodedata import name
+from django import views
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
@@ -27,6 +29,8 @@ urlpatterns = [
     path('contactus/',include('contact.urls',namespace="contact")),
     path('api-auth/',include("rest_framework.urls")),
     path('blog/',include('blog.urls',namespace="blogs")),
+    path('',include('home.urls',namespace="homepage")),
+    
 ]
 
 urlpatterns+=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'contact',
     'rest_framework',
     'blog',
+    'home',
     ]
 
 MIDDLEWARE = [
