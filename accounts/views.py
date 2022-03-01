@@ -1,11 +1,12 @@
 from django.contrib.auth import authenticate, login
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from .forms import SignupForm,ProfileForm,UserForm
 from .models import Profile
 from django.urls import reverse
 # Create your views here.
 
-def signup(request):
+def register(request):
     if request.method=='POST':
         form=SignupForm(request.POST)
         if form.is_valid:
@@ -16,6 +17,7 @@ def signup(request):
             user=authenticate(username=username,password=password)
             login(request,user)
             return redirect('/accounts/profile')
+            
     else:
         form=SignupForm()
 
