@@ -31,56 +31,20 @@
 ### Screenshots From The Project
 
 ## Home page
-<img src="screenshots/HomePage.gif" >
+<img src="screenshots/homepage.gif" >
 
-## Login page
-<img src="screenshots/loginpage.gif" >
+
 
 ## Jobs List With A Filter
-<img src="screenshots/joblist.gif" >
+<img src="screenshots/Joblisting.gif" >
 
-## Job details 
-<img src="screenshots/jobdetail.gif" >
+
 
 ## Job details With Apply Form
 
-<img src="screenshots/Job-detail_apply.gif" >
+<img src="screenshots/jobdetailwithApply.gif" >
 
 
-## Add new Job
-<img src="screenshots/addjob.gif" >
-
-
-## Blogs List With Create Posts
-<img src="screenshots/blogspage.gif" >
-
-## Blogs List
-<img src="screenshots/bloglist.gif" >
-
-
-## Blog detail With Comment Form
-<img src="screenshots/leavecomments.gif" >
-
-## Login
-<img src="screenshots/login.gif" >
-
-## ResetPass
-<img src="screenshots/resetpass.gif" >
-
-## Registeration
-<img src="screenshots/Registeration.gif" >
-
-## ProfileSummary
-<img src="screenshots/profileSummary.gif" >
-
-## EditProfile
-<img src="screenshots/Edit_profile.gif" >
-
-## Contactus
-<img src="screenshots/contactus.gif" >
-
-## API
-<img src="screenshots/Jobsapi.gif" >
 
  
 
