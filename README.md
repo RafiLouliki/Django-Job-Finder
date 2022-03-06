@@ -35,15 +35,6 @@
 
 
 
-## Jobs List With A Filter
-<img src="screenshots/Joblisting.gif" >
-
-
-
-## Job details With Apply Form
-
-<img src="screenshots/jobdetailwithApply.gif" >
-
 
 
  
