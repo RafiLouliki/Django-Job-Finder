@@ -32,7 +32,6 @@
 
 ## Home page
 <img src="screenshots/HomePage.gif" >
-![homepage](https://user-images.githubusercontent.com/92231417/156942906-035a26f8-e051-43c4-b567-24036330ca48.gif)
 
 
 ## Login page
